@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOM Tutorial by sayed</title>
+</head>
+
+<body>
+  <h1>hello world</h1>
+  	
+  <button onclick="getLocation()">Get Location</button>
+  <p id="display"></p>
+
+
+  <script>
+
+    
+const display = document.getElementById('display')
+
+function getLocation(){
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(showposition)
+    }else{
+        display.innerHTML = "Geolocation Not Support In Your Browser"
+    }
+}
+
+function showposition(position){
+    display.innerHTML = "Latitude: "+ position.coords.latitude + "<br/> Longitude: "+
+    position.coords.longitude;
+}
+  </script>
+</body>
+</html>
